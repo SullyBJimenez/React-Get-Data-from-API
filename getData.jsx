@@ -60,7 +60,7 @@ function App() {
   const { Fragment, useState, useEffect, useReducer } = React;
   const [query, setQuery] = useState("Shepherds");
   const [{ data, isLoading, isError }, doFetch] = useDataApi(
-    "https://api.adoptapet.com/search/pets_at_shelters?key=A34F48&v=1&output=xml&shelter_id=2342&shelter_id=17293&shelter_id=8323",
+    "https://dog.ceo/api/breeds/image/random",
     {
       hits: []
     }
@@ -70,7 +70,7 @@ function App() {
     <Fragment>
       <form
         onSubmit={event => {
-          doFetch(`https://api.adoptapet.com/search/pets_at_shelters?key=A34F48&v=1&output=xml&shelter_id=2342&shelter_id=17293&shelter_id=8323
+          doFetch(`https://dog.ceo/api/breeds/image/random
           `);
 
           event.preventDefault();
