@@ -58,21 +58,20 @@ const dataFetchReducer = (state, action) => {
 
 function App() {
   const { Fragment, useState, useEffect, useReducer } = React;
-  const [query, setQuery] = useState("Shepherds");
+  const [query, setQuery] = useState("chihuahua");
   const [{ data, isLoading, isError }, doFetch] = useDataApi(
-    "https://dog.ceo/api/breeds/image/random",
+    "https://dog.ceo/api/breeds/chihuahua/images/random",
     {
       hits: []
-    }
+    },
   );
 
   return (
     <Fragment>
       <form
         onSubmit={event => {
-          doFetch(`https://dog.ceo/api/breeds/image/random
+          doFetch(`https://dog.ceo/api/breeds/${query}/images/random
           `);
-
           event.preventDefault();
         }}
       >
@@ -90,11 +89,7 @@ function App() {
         <div>Loading ...</div>
       ) : (
         <ul>
-          {data.hits.map(item => (
-            <li key={item.objectID}>
-              <a href={item.url}>{item.title}</a>
-            </li>
-          ))}
+          {value}
         </ul>
       )}
     </Fragment>
